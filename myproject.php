@@ -6,6 +6,29 @@
 </head>
 <body>
 	<form name = "Employement " action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "post">
+ 
+ <?php
+ 	$name = $Website = $position = $eLevel = $estatus = $comments = "";
+ 	if($_SERVER["REQUEST_METHOD"] == "POST" ){
+ 		$name = val($_POST["name"]);
+ 		$Website = val($_POST["Website"]);
+ 		$position = val($_POST["position"]);
+ 		$eLevel = val($_POST["eLevel"]);
+ 		$estatus = val($_POST["estatus"]);
+ 		$comments = val($_POST["comments"]);
+ 	}
+
+ function val($data)
+ {
+ 	$data = trim($data);
+ 	$data = stripslashes($data);
+ 	$data = htmlspecialchars($data);
+ 	return $data;
+ }
+
+ 	?>
+
+
 		<table width="600" cellpadding="1" cellspacing="1" border="0">
 			<tr>
 				<td><h1>Employment Application</h1></td>
@@ -29,7 +52,7 @@
 			</tr>
 			<tr>
 				<td>Experience Level</td>
-				<td><select name = "experienceLevel">
+				<td><select name = "eLevel">
 					<option value = "entry">Entry Level </option>
 					<option value = "some">Some experienced</option>
 					<option value = "very">Very experienced</option>
@@ -55,5 +78,14 @@
 			</tr>
 		</table>
 	</form>
+	<?php
+				 echo "<h1>output data</h1><hr>";
+				 echo "name: ".$name."<br>";
+				 echo "website: ".$Website."<br>";
+				 echo "position: ".$position."<br>";
+				 echo "Employement status: ".$estatus."<br>";
+				 echo "experience Level: ".$eLevel."<br>";
+				 echo "Additional comments: ".$comments."<br>";	 
+	?>
 </body>
 </html>
