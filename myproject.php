@@ -3,6 +3,11 @@
 <head>
 	<title>php forms</title>
 	<meta charset="utf-8">
+	<style type="text/css">
+		.error{
+			color: red;
+		}
+	</style>
 </head>
 <body>
 	<form name = "Employement " action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "post">
@@ -10,12 +15,24 @@
  <?php
  	$name = $Website = $position = $eLevel = $estatus = $comments = "";
  	if($_SERVER["REQUEST_METHOD"] == "POST" ){
- 		$name = val($_POST["name"]);
- 		$Website = val($_POST["Website"]);
- 		$position = val($_POST["position"]);
- 		$eLevel = val($_POST["eLevel"]);
- 		$estatus = val($_POST["estatus"]);
- 		$comments = val($_POST["comments"]);
+ 		if(empty($_POST["name"]))
+ 			echo "<span class = \"error\">Error:Name required<br></span>";
+ 		elseif(!preg_match("/^[a-zA-Z ]*$/", $_POST["name"])){
+ 				echo "<span class = \"error\">Error:Name required only letters and spaces<br></span>";
+ 			}
+ 		elseif(!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", $_POST["Website"])) {
+ 				echo "<span class = \"error\">Error:incorrect format of website<br></span>";
+ 			}	
+ 		elseif(empty($_POST["Website"]))
+ 			echo "<span class = \"error\">Error:website required<br></span>";
+ 		else{
+	 		$name = val($_POST["name"]);
+	 		$Website = val($_POST["Website"]);
+	 		$position = val($_POST["position"]);
+	 		$eLevel = val($_POST["eLevel"]);
+	 		$estatus = val($_POST["estatus"]);
+	 		$comments = val($_POST["comments"]);
+		 }
  	}
 
  function val($data)
@@ -62,7 +79,7 @@
 				<td>Employement status</td>
 				<td><input type="radio" name="estatus" value="employed">Employed</input>
 						<input type="radio" name="estatus" value="unemployed">Unemployed</input>
-					<input type="radio" name="estatus" value="student">Student</input>
+					<input type="radio" name="estatus" value="student ">Student</input>
 			  </td>
 			</tr>
 			<tr>
