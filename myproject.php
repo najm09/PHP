@@ -34,7 +34,6 @@
 	 		$comments = val($_POST["comments"]);
 		 }
  	}
-
  function val($data)
  {
  	$data = trim($data);
@@ -42,10 +41,7 @@
  	$data = htmlspecialchars($data);
  	return $data;
  }
-
  	?>
-
-
 		<table width="600" cellpadding="1" cellspacing="1" border="0">
 			<tr>
 				<td><h1>Employment Application</h1></td>
