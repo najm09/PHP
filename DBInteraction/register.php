@@ -17,7 +17,7 @@
 	$password = "";
 	$dbname = "";
 
-//create connection
+//create database connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
 //check connection
@@ -25,13 +25,19 @@
 		die("connection failed:".$conn->connect_error);
 	}
 
-	//inserting values into Database
+//inserting values into Database
 	$sql = "INSERT INTO users (firstname,lastname,email)
-	VALUES ('$fname', '$lname', '$email')";
+	VALUES ('$fname', '$lname', '$email');";
+//insering multiple recors
+	$sql .= "INSERT INTO users(firstname,lastname,email)
+	VALUES ('joey', 'edward', 'edward@me.com');";
+
 
 //checking new query is created or not
-	if($conn->query($sql) === TRUE){
-		echo " new record created successfully";
+	if($conn->multi_query($sql) === TRUE){
+		$last_id = $conn->insert_id;
+		echo " new record created successfully<br>
+		Record ID is ".$last_id."<hr>";
 	}else{
 		echo "error".$sql."<br>".$conn->error;
 	}
