@@ -10,6 +10,12 @@
     die("Error:".$conn->connect_error);
   }
 
+  if(Isset($_GET["message"])){
+    if(($_GET["message"]) =="delete"){
+      echo "Record deleted<br><hr>";
+    }
+  }
+
   $sql = "SELECT id, firstname, lastname, email FROM users";
   $result = $conn->query($sql);
 ?>
@@ -21,7 +27,8 @@
       <tr>
         <td>ID</td>
         <td><?php echo $row["id"]; ?></td>
-        <td><a href = "deluser.php?id=<?php echo $row["id"];?>">DELETE</a></td>
+        <td><a href = "deluser.php?id=<?php echo $row["id"];?>">DELETE</a><hr>
+        <a href = "update.php?id=<?php echo $row["id"];?>">UPDATE</a></td>
       </tr>
 
       <tr>
