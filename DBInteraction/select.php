@@ -12,12 +12,12 @@
 		die("connection failed:".$conn->connect_error);
 	}
 
-	$sql = "SELECT id,firstname,lastname,email FROM users";
+	$sql = "SELECT DISTINCT firstname FROM users";
 	$result = $conn->query($sql);
 
 	if($result->num_rows > 0){
 		while($row = $result->fetch_assoc()){
-			echo "ID:".$row["id"]." firstname:".$row["firstname"]." lastname:".$row["lastname"]." email:".$row["email"]."<hr>";
+			echo " firstname:".$row["firstname"]."<hr>";
 		}
 	}
 	else{
