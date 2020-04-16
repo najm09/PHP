@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<blockbuster>
+  <movie category = "action">
+    <title lan = "en">Batman</title>
+    <producer>Michael Uslan</producer>
+    <year>1991</year>
+    <price>20.00</price>
+  </movie>
+  <movie category = "comedy">
+    <title lan = "en">Friday</title>
+    <producer>Bryan Turner</producer>
+    <year>1995</year>
+    <price>18.00</price>
+  </movie>
+  <movie category = "horror">
+    <title lan = "en">Saw</title>
+    <producer>Mark Burg</producer>
+    <year>2004</year>
+    <price>17.00</price>
+  </movie>
+  <movie category = "Drama">
+    <title lan = "en">Gone Girl</title>
+    <producer>David Frincher</producer>
+    <year>2014</year>
+    <price>22.00</price>
+  </movie>
+  <movie category = "Drama">
+    <title lan = "en">Whiplash</title>
+    <producer>Damien Chazelle</producer>
+    <year>2014</year>
+    <price>22.00</price>
+  </movie>
+  <movie category = "Adventure">
+    <title lan = "en">Divergent</title>
+    <producer>Neil Burger</producer>
+    <year>2014</year>
+    <price>25.00</price>
+  </movie>
+</blockbuster>
