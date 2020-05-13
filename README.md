@@ -16,4 +16,4 @@ Session variables / DB interactions/ Ajax parsing/ login-logout configuration
 
 7. Document object model 
 
-8. Function validation 
+8. Form validation 
